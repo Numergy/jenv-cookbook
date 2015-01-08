@@ -19,7 +19,7 @@
 #
 
 if defined?(ChefSpec)
-  def run_jenv_build(command)
-    ChefSpec::Matchers::ResourceMatcher.new(:jenv_build, :run, command)
+  def run_jenv_install(command)
+    ChefSpec::Matchers::ResourceMatcher.new(:jenv_install, :run, command)
   end
 end
