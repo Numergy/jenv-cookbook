@@ -1,0 +1,7 @@
+name 'fake_jenv'
+maintainer 'Numergy'
+maintainer 'pierre.rambaud@numergy.com'
+license 'Apache 2.0'
+description 'Tests jenv resources'
+version '0.0.0'
+depends 'jenv'

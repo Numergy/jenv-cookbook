@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # Cookbook Name:: jenv
-# Library:: matchers
+# Resource:: global
 #
 # Copyright 2015, Numergy
 #
@@ -18,8 +18,18 @@
 # limitations under the License.
 #
 
-if defined?(ChefSpec)
-  def run_jenv_install(command)
-    ChefSpec::Matchers::ResourceMatcher.new(:jenv_install, :run, command)
-  end
+actions :create
+default_action :create
+
+attribute :jenv_version, kind_of: String, name_attribute: true
+attribute :user, kind_of: String
+attribute :root_path, kind_of: String
+
+def initialize(*args)
+  super
+  @action = :create
+end
+
+def to_s
+  "#{super} (#{@user || 'system'})"
 end

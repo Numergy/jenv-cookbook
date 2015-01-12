@@ -3,7 +3,7 @@
 # Cookbook Name:: jenv
 # Resource:: java
 #
-# Copyright 2014, Numergy
+# Copyright 2015, Numergy
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,18 +18,20 @@
 # limitations under the License.
 #
 
-actions :install, :run
-default_action :install
+actions :run
+default_action :run
 
-attribute :name, kind_of: String
-attribute :version, kind_of: String
-attribute :url, kind_of: String
-attribute :checksum, kind_of: String
-attribute :symlink, kind_of: String
-attribute :global, kind_of: [TrueClass, FalseClass], default: false
-attribute :environment, kind_of: Hash, default: {}
+attribute :version, kind_of: String, name_attribute: true
+attribute :root_path, kind_of: String
+attribute :user, kind_of: String
+attribute :environment, kind_of: Hash
 
 def initialize(*args)
   super
-  @action = :install
+  @action = :run
+  @jenv_version = @version
+end
+
+def to_s
+  "#{super} {#{@user || 'system'}}"
 end

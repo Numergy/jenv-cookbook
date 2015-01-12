@@ -7,6 +7,6 @@ Berksfile.lock
 Gemfile.lock
 Vagrantfile
 vendor
-cookbooks
+/cookbooks
 .kitchen/
 .kitchen.local.yml

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # Cookbook Name:: jenv
-# Library:: matchers
+# Providers:: global
 #
 # Copyright 2015, Numergy
 #
@@ -17,9 +17,22 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+include Chef::Jenv::Mixin
 
-if defined?(ChefSpec)
-  def run_jenv_install(command)
-    ChefSpec::Matchers::ResourceMatcher.new(:jenv_install, :run, command)
+action :create do
+  if current_global_version != new_resource.jenv_version
+    command = %(jenv global #{java_version(new_resource.jenv_version)})
+
+    jenv_script "#{command} #{which_jenv}" do
+      code command
+      user new_resource.user if new_resource.user
+      root_path new_resource.root_path if new_resource.root_path
+
+      action :nothing
+    end.run_action(:run)
+
+    new_resource.updated_by_last_action(true)
+  else
+    Chef::Log.debug("#{new_resource} is already set - nothing to do")
   end
 end

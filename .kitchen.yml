@@ -13,3 +13,4 @@ suites:
   - name: 'default'
     run_list:
       - recipe[jenv::default]
+      - recipe[fake_jenv]
