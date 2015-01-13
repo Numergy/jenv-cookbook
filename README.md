@@ -1,6 +1,6 @@
 # jenv Cookbook
 
-Manage installation for java 6 and 7  via [jenv][jenv]. Also provides a set of lightweight resources and providers.
+Manage installation for multiple Java versions via [jenv][jenv]. Also provides a set of lightweight resources and providers.
 
 If you've used [rbenv][rbenv] or [pyenv][pyenv], this is a port of that concept for Java.
 
