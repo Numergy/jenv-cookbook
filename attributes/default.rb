@@ -20,8 +20,6 @@
 
 default['apt']['compile_time_update'] = true
 
-default['java']['oracle']['accept_oracle_download_terms'] = true
-
 default['jenv']['user']           = 'jenv'
 default['jenv']['group']          = 'jenv'
 default['jenv']['user_home']      = '/home/jenv'
@@ -34,8 +32,3 @@ default['jenv']['create_profiled'] = true
 default['jenv']['git_force_update'] = false
 default['jenv']['git_repository'] = 'https://github.com/gcuisinier/jenv.git'
 default['jenv']['git_reference'] = 'master'
-
-default['jenv']['jdk_versions'] = %w(6 7)
-default['jenv']['global_version'] = '7'
-
-default['jenv']['plugins'] = %w(maven)
