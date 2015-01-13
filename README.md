@@ -1,4 +1,4 @@
-# jenv Cookbook
+# jenv Cookbook | [![Build Status](https://travis-ci.org/Numergy/jenv-cookbook.svg)](https://travis-ci.org/Numergy/jenv-cookbook)
 
 Manage installation for multiple Java versions via [jenv][jenv]. Also provides a set of lightweight resources and providers.
 
