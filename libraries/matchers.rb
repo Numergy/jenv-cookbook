@@ -22,4 +22,12 @@ if defined?(ChefSpec)
   def run_jenv_install(command)
     ChefSpec::Matchers::ResourceMatcher.new(:jenv_install, :run, command)
   end
+
+  def run_jenv_script(command)
+    ChefSpec::Matchers::ResourceMatcher.new(:jenv_script, :run, command)
+  end
+
+  def run_jenv_global(command)
+    ChefSpec::Matchers::ResourceMatcher.new(:jenv_global, :run, command)
+  end
 end
