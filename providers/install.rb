@@ -60,7 +60,7 @@ def install_packages
     action :nothing
   end.run_action(:run)
 
-  execute "change-owner" do
+  execute 'change-owner' do
     command "chown -R #{node['jenv']['user']}:#{node['jenv']['group']} #{node['jenv']['root_path']}"
     action :nothing
   end.run_action(:run)
