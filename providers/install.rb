@@ -59,4 +59,9 @@ def install_packages
     environment new_resource.environment if new_resource.environment
     action :nothing
   end.run_action(:run)
+
+  execute "change-owner" do
+    command "chown -R #{node['jenv']['user']}:#{node['jenv']['group']} #{node['jenv']['root_path']}"
+    action :nothing
+  end.run_action(:run)
 end

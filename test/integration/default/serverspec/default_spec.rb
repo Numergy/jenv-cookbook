@@ -53,7 +53,7 @@ describe file '/opt/jenv/versions/1.7' do
 end
 
 describe file '/opt/jenv/version' do
-  its(:content) { should match(/1.7/) }
+  its(:content) { should match(/1.6/) }
   it { should be_owned_by 'jenv' }
   it { should be_grouped_into 'jenv' }
   it { should be_mode 644 }

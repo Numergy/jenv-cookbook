@@ -44,6 +44,11 @@ class Chef
         version_file = ::File.join(jenv_root, 'version')
         ::File.exist?(version_file) && ::IO.read(version_file).chomp
       end
+
+      def user_home
+        return nil unless new_resource.user
+        Etc.getpwnam(new_resource.user).dir
+      end
     end
   end
 end
