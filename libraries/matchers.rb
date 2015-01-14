@@ -30,4 +30,12 @@ if defined?(ChefSpec)
   def run_jenv_global(command)
     ChefSpec::Matchers::ResourceMatcher.new(:jenv_global, :run, command)
   end
+
+  def enable_jenv_plugin(command)
+    ChefSpec::Matchers::ResourceMatcher.new(:jenv_plugin, :enable, command)
+  end
+
+  def disable_jenv_plugin(command)
+    ChefSpec::Matchers::ResourceMatcher.new(:jenv_plugin, :disable, command)
+  end
 end
