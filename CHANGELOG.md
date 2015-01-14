@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the jenv-cookbook cookbook.
 
+## 0.4.0
+- [Pierre Rambaud] - Bug with jenv_global matcher
+
 ## 0.3.0
 - [Pierre Rambaud] - Missing ChefSpec matchers
 

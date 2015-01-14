@@ -27,8 +27,8 @@ if defined?(ChefSpec)
     ChefSpec::Matchers::ResourceMatcher.new(:jenv_script, :run, command)
   end
 
-  def run_jenv_global(command)
-    ChefSpec::Matchers::ResourceMatcher.new(:jenv_global, :run, command)
+  def create_jenv_global(command)
+    ChefSpec::Matchers::ResourceMatcher.new(:jenv_global, :create, command)
   end
 
   def enable_jenv_plugin(command)
