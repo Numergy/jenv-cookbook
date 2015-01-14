@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # Cookbook Name:: jenv
-# Provider:: java
+# Provider:: install
 #
 # Copyright 2015, Numergy
 #
@@ -37,10 +37,6 @@ def perform_install
     Chef::Log.debug("#{new_resource} install time was " \
                     "#{(Time.now - install_start) / 60.0} minutes")
   end
-end
-
-def java_installed?
-  ::File.directory?(::File.join(jenv_root, 'versions', java_version(new_resource.version)))
 end
 
 def install_packages

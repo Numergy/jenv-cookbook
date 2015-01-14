@@ -58,3 +58,13 @@ describe file '/opt/jenv/version' do
   it { should be_grouped_into 'jenv' }
   it { should be_mode 644 }
 end
+
+describe file '/opt/jenv/plugins/maven' do
+  it { should be_symlink }
+end
+
+describe file '/opt/jenv/plugins/groovy' do
+  it { should_not be_file }
+  it { should_not be_directory }
+  it { should_not be_symlink }
+end

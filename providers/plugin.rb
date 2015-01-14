@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # Cookbook Name:: jenv
-# Resource:: install
+# Provider:: plugin
 #
 # Copyright 2015, Numergy
 #
@@ -18,20 +18,26 @@
 # limitations under the License.
 #
 
-actions :run
-default_action :run
+include Chef::Jenv::Mixin
 
-attribute :version, kind_of: String, name_attribute: true
-attribute :root_path, kind_of: String
-attribute :user, kind_of: String
-attribute :environment, kind_of: Hash
-
-def initialize(*args)
-  super
-  @action = :run
-  @jenv_version = @version
+action :enable do
+  perform_plugin('enable')
+  new_resource.updated_by_last_action(true)
 end
 
-def to_s
-  "#{super} {#{@user || 'system'}}"
+action :disable do
+  perform_plugin('disable')
+  new_resource.updated_by_last_action(true)
+end
+
+private
+
+def perform_plugin(method)
+  command = "jenv #{method}-plugin #{new_resource.name}"
+  jenv_script "#{command} #{which_jenv}" do
+    code command
+    user new_resource.user if new_resource.user
+    root_path new_resource.root_path if new_resource.root_path
+    action :nothing
+  end.run_action(:run)
 end

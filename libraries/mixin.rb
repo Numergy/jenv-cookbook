@@ -49,6 +49,10 @@ class Chef
         return nil unless new_resource.user
         Etc.getpwnam(new_resource.user).dir
       end
+
+      def java_installed?
+        ::File.directory?(::File.join(jenv_root, 'versions', java_version(new_resource.version)))
+      end
     end
   end
 end

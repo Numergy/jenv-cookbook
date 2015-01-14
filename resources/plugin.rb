@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # Cookbook Name:: jenv
-# Resource:: install
+# Resource:: plugin
 #
 # Copyright 2015, Numergy
 #
@@ -18,20 +18,14 @@
 # limitations under the License.
 #
 
-actions :run
-default_action :run
+actions :enable, :disable
+default_action :enable
 
-attribute :version, kind_of: String, name_attribute: true
+attribute :name, kind_of: String, name_attribute: true
 attribute :root_path, kind_of: String
 attribute :user, kind_of: String
-attribute :environment, kind_of: Hash
 
 def initialize(*args)
   super
-  @action = :run
-  @jenv_version = @version
-end
-
-def to_s
-  "#{super} {#{@user || 'system'}}"
+  @action = :enable
 end

@@ -2,5 +2,8 @@
 
 This file is used to list changes made in each version of the jenv-cookbook cookbook.
 
+## 0.2.0
+- [Pierre Rambaud] - Resource to manage jenv plugins
+
 ## 0.1.0
 - [Pierre Rambaud] - Initial release of jenv-cookbook
