@@ -18,6 +18,8 @@
 # limitations under the License.
 #
 
+use_inline_resources
+
 include Chef::Jenv::Mixin
 
 action :run do
@@ -55,7 +57,12 @@ end
 
 def build_script_environment
   script_env = { 'JENV_ROOT' => jenv_root }
-  script_env.merge!('USER' => new_resource.user, 'HOME' => user_home) if new_resource.user
+
+  if new_resource.user
+    script_env['USER'] = new_resource.user
+    script_env['HOME'] = user_home
+  end
+
   script_env.merge!(new_resource.environment) if new_resource.environment
   script_env
 end

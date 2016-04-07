@@ -8,3 +8,8 @@ version '0.4.0'
 
 depends 'apt'
 depends 'git'
+
+source_url 'https://github.com/Numergy/jenv-cookbook' if
+  respond_to?(:source_url)
+issues_url 'https://github.com/Numergy/jenv-cookbook/issues' if
+  respond_to?(:issues_url)
